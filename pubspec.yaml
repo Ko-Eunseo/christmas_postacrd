@@ -28,20 +28,20 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  cloud_firestore: ^4.13.1
   cupertino_icons: ^1.0.2
+  extended_image: ^8.1.1
   firebase_auth: ^4.15.0
   firebase_core: ^2.24.0
-  extended_image: ^8.1.1
-  cloud_firestore: ^4.13.1
-  flutter_svg: ^2.0.9
-  provider: ^6.1.1
-  validators: ^3.0.0
-  state_notifier: ^1.0.0
-
-  uuid: ^4.2.1
+  firebase_storage: ^11.5.3
   flutter:
     sdk: flutter
+  flutter_svg: ^2.0.9
   google_sign_in: ^6.1.6
+  provider: ^6.1.1
+  state_notifier: ^1.0.0
+  uuid: ^4.2.1
+  validators: ^3.0.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -59,9 +59,8 @@ flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/icons
-    - assets/items
-    - assets/trees
+    - assets/items/
+    - assets/trees/
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -83,8 +82,7 @@ flutter:
           weight: 600
         - asset: assets/fonts/Pretendard-Bold.otf
           weight: 700
-        - asset: assets/fonts/Black.otf
+        - asset: assets/fonts/Pretendard-Black.otf
           weight: 900
-  #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
