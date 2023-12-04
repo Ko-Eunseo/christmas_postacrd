@@ -1,5 +1,6 @@
 import 'package:christmas_postcard/providers/auth/auth_provider.dart';
 import 'package:christmas_postcard/styles/app_font_styles.dart';
+import 'package:christmas_postcard/view/widgets/headline.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -25,10 +26,7 @@ class _SignupPageState extends State<SignupPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // header
-              Text(
-                'Merry Christmas',
-                style: AppTextStyles.headline50(),
-              ),
+              const Headline(),
               // contents
               const SizedBox(height: 16),
               Form(

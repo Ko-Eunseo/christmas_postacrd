@@ -1,6 +1,7 @@
 import 'package:christmas_postcard/repository/auth_repository.dart';
 import 'package:christmas_postcard/styles/app_font_styles.dart';
 import 'package:christmas_postcard/view/pages/signup_page.dart';
+import 'package:christmas_postcard/view/widgets/headline.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -23,10 +24,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Merry Christmas',
-              style: AppTextStyles.headline50(),
-            ),
+            const Headline(),
             Form(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

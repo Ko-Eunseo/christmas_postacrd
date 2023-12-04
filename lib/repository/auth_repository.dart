@@ -36,9 +36,6 @@ class AuthRepository {
       'receivedCards': [],
       'friends': [],
     });
-
-    // 회원가입과 동시에 로그인을 시도하기때문에 로그아웃해주어야함.
-    firebaseAuth.signOut();
   }
 
   Future<void> signinWithGoogle(BuildContext context) async {

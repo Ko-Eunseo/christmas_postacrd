@@ -1,8 +1,9 @@
 import 'package:christmas_postcard/firebase_options.dart';
 import 'package:christmas_postcard/providers/auth/auth_state.dart';
+import 'package:christmas_postcard/providers/user/user_provider.dart';
+import 'package:christmas_postcard/providers/user/user_state.dart';
 import 'package:christmas_postcard/repository/auth_repository.dart';
-import 'package:christmas_postcard/view/pages/login_page.dart';
-import 'package:christmas_postcard/view/pages/signup_page.dart';
+import 'package:christmas_postcard/repository/user_repository.dart';
 import 'package:christmas_postcard/view/pages/splash_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' hide AuthProvider;
@@ -39,6 +40,13 @@ class MyApp extends StatelessWidget {
             );
           },
         ),
+        Provider<UserRepository>(
+          create: (context) {
+            return UserRepository(
+              firebaseFirestore: FirebaseFirestore.instance,
+            );
+          },
+        ),
         // 접속상태를 실시간으로 받음
         StreamProvider<User?>(
           create: (context) => FirebaseAuth.instance.authStateChanges(),
@@ -46,6 +54,9 @@ class MyApp extends StatelessWidget {
         ),
         StateNotifierProvider<AuthProvider, AuthState>(
           create: (context) => AuthProvider(),
+        ),
+        StateNotifierProvider<UserProvider, UserState>(
+          create: (context) => UserProvider(),
         ),
       ],
       child: const MaterialApp(
