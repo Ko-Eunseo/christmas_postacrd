@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "762091419862",
+    "project_id": "christmas-postcard-de486",
+    "storage_bucket": "christmas-postcard-de486.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:762091419862:android:52ed3061742bbf81b4f177",
+        "android_client_info": {
+          "package_name": "com.example.christmas_postcard"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtTHV-7xOgMZcXrAXGwkjq6MJ7na7R6Hc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

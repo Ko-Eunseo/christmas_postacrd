@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyCpxVae5b1H3qQ9Y9gsuoMyyq3_iR9Epbw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>762091419862</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.christmasPostcard</string>
+	<key>PROJECT_ID</key>
+	<string>christmas-postcard-de486</string>
+	<key>STORAGE_BUCKET</key>
+	<string>christmas-postcard-de486.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:762091419862:ios:2250a471687f31f6b4f177</string>
+</dict>
+</plist>
