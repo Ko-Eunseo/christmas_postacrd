@@ -1,7 +1,9 @@
 import 'package:christmas_postcard/firebase_options.dart';
 import 'package:christmas_postcard/providers/auth/auth_state.dart';
 import 'package:christmas_postcard/repository/auth_repository.dart';
+import 'package:christmas_postcard/view/pages/login_page.dart';
 import 'package:christmas_postcard/view/pages/signup_page.dart';
+import 'package:christmas_postcard/view/pages/splash_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' hide AuthProvider;
 import 'package:firebase_core/firebase_core.dart';
@@ -24,6 +26,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // FirebaseAuth.instance.signOut();
+
     return MultiProvider(
       providers: [
         Provider<AuthRepository>(
@@ -45,7 +49,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: const MaterialApp(
-        home: SignupPage(),
+        home: SplashPage(),
       ),
     );
   }

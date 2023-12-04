@@ -99,18 +99,15 @@ class _SignupPageState extends State<SignupPage> {
                         Expanded(
                           child: ElevatedButton(
                             onPressed: () async {
-                              //1. firebase에 등록
                               await context.read<AuthProvider>().signup(
                                     email: emailController.text,
                                     name: nameController.text,
                                     password: pwController.text,
                                   );
-                              //2. 페이지이동
-                              //3. 성공 알람
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text(
-                                    '인증 메일을 전송했습니다.',
+                                    '회원가입에 성공했습니다.',
                                   ),
                                   duration: Duration(seconds: 120),
                                 ),
