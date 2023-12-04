@@ -12,6 +12,8 @@ class AppTextStyles {
   static const light =
       TextStyle(fontFamily: 'Pretendard', fontWeight: FontWeight.w300);
 
+  static TextStyle headline50({Color color = Colors.black}) =>
+      black.copyWith(fontSize: 50, color: color);
   static TextStyle header32({Color color = Colors.black}) =>
       semiBold.copyWith(fontSize: 32, color: color);
   static TextStyle header24({Color color = Colors.black}) =>
