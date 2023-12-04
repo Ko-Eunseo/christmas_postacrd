@@ -12,7 +12,20 @@
           "package_name": "com.example.christmas_postcard"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "762091419862-ffov2p0rf86amp9oq0h8i9gvctim2jcd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.christmas_postcard",
+            "certificate_hash": "19f75c81729bfddcc974ec3982d72b3def96e302"
+          }
+        },
+        {
+          "client_id": "762091419862-rose6cbk9rrg8skhjr9v170o034r0kff.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDtTHV-7xOgMZcXrAXGwkjq6MJ7na7R6Hc"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "762091419862-rose6cbk9rrg8skhjr9v170o034r0kff.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "762091419862-4ibsef074ovu04sgghlv4s8sccu2h353.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.christmasPostcard.RunnerTests"
+              }
+            }
+          ]
         }
       }
     }
