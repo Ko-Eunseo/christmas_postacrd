@@ -1,5 +1,7 @@
+import 'package:christmas_postcard/providers/postcard/postcard_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 
 enum AssetType { item, tree }
 
@@ -38,9 +40,17 @@ class TabbarView extends StatelessWidget {
         String imageName = type == AssetType.tree
             ? '${type.name}${index + 1}.svg'
             : '${type.name}${index + 1}.png';
-        return type == AssetType.tree
-            ? SvgPicture.asset(path + imageName)
-            : Image.asset(path + imageName);
+        return GestureDetector(
+          onTap: () {
+            //스티커 추가
+            context
+                .read<PostcardProvider>()
+                .addSticker(context, path + imageName);
+          },
+          child: type == AssetType.tree
+              ? SvgPicture.asset(path + imageName)
+              : Image.asset(path + imageName),
+        );
       },
     );
   }

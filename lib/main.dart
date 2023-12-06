@@ -1,9 +1,14 @@
 import 'package:christmas_postcard/firebase_options.dart';
 import 'package:christmas_postcard/providers/auth/auth_state.dart';
+import 'package:christmas_postcard/providers/postcard/postcard_provider.dart';
+import 'package:christmas_postcard/providers/postcard/postcard_state.dart';
 import 'package:christmas_postcard/providers/user/user_provider.dart';
 import 'package:christmas_postcard/providers/user/user_state.dart';
 import 'package:christmas_postcard/repository/auth_repository.dart';
 import 'package:christmas_postcard/repository/user_repository.dart';
+import 'package:christmas_postcard/styles/app_color_styles.dart';
+import 'package:christmas_postcard/view/pages/edit_tree_page.dart';
+import 'package:christmas_postcard/view/pages/my_page.dart';
 import 'package:christmas_postcard/view/pages/splash_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' hide AuthProvider;
@@ -58,9 +63,28 @@ class MyApp extends StatelessWidget {
         StateNotifierProvider<UserProvider, UserState>(
           create: (context) => UserProvider(),
         ),
+        StateNotifierProvider<PostcardProvider, PostcardState>(
+          create: (context) => PostcardProvider(),
+        ),
       ],
-      child: const MaterialApp(
-        home: SplashPage(),
+      child: MaterialApp(
+        home: const SplashPage(),
+        // home: const EditTreePage(),
+        theme: ThemeData(
+          textTheme: const TextTheme(
+            bodyMedium: TextStyle(
+              color: AppColors.blackColor,
+            ),
+            bodySmall: TextStyle(
+              color: AppColors.blackColor,
+            ),
+          ),
+          colorScheme: ColorScheme.fromSeed(
+            background: AppColors.background,
+            brightness: Brightness.light,
+            seedColor: AppColors.redColor,
+          ),
+        ),
       ),
     );
   }
