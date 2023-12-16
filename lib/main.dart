@@ -2,6 +2,8 @@ import 'package:christmas_postcard/firebase_options.dart';
 import 'package:christmas_postcard/providers/auth/auth_state.dart';
 import 'package:christmas_postcard/providers/postcard/postcard_provider.dart';
 import 'package:christmas_postcard/providers/postcard/postcard_state.dart';
+import 'package:christmas_postcard/providers/sticker/sticker_provider.dart';
+import 'package:christmas_postcard/providers/sticker/sticker_state.dart';
 import 'package:christmas_postcard/providers/user/user_provider.dart';
 import 'package:christmas_postcard/providers/user/user_state.dart';
 import 'package:christmas_postcard/repository/auth_repository.dart';
@@ -63,13 +65,16 @@ class MyApp extends StatelessWidget {
         StateNotifierProvider<UserProvider, UserState>(
           create: (context) => UserProvider(),
         ),
+        StateNotifierProvider<StickerProvider, StickerState>(
+          create: (context) => StickerProvider(),
+        ),
         StateNotifierProvider<PostcardProvider, PostcardState>(
           create: (context) => PostcardProvider(),
         ),
       ],
       child: MaterialApp(
-        home: const SplashPage(),
-        // home: const EditTreePage(),
+        // home: const SplashPage(),
+        home: const EditTreePage(),
         theme: ThemeData(
           textTheme: const TextTheme(
             bodyMedium: TextStyle(

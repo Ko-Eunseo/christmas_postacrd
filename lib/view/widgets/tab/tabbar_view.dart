@@ -1,4 +1,4 @@
-import 'package:christmas_postcard/providers/postcard/postcard_provider.dart';
+import 'package:christmas_postcard/providers/sticker/sticker_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
@@ -44,7 +44,7 @@ class TabbarView extends StatelessWidget {
           onTap: () {
             //스티커 추가
             context
-                .read<PostcardProvider>()
+                .read<StickerProvider>()
                 .addSticker(context, path + imageName);
           },
           child: type == AssetType.tree
