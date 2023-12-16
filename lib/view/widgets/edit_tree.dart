@@ -1,6 +1,6 @@
 import 'package:christmas_postcard/model/sticker_model.dart';
-import 'package:christmas_postcard/providers/postcard/postcard_provider.dart';
-import 'package:christmas_postcard/providers/postcard/postcard_state.dart';
+import 'package:christmas_postcard/providers/sticker/sticker_provider.dart';
+import 'package:christmas_postcard/providers/sticker/sticker_state.dart';
 import 'package:christmas_postcard/styles/app_color_styles.dart';
 import 'package:christmas_postcard/view/widgets/headline.dart';
 import 'package:flutter/material.dart';
@@ -14,9 +14,9 @@ enum EditType {
 class EditTree extends StatefulWidget {
   const EditTree({
     super.key,
-    this.backgroundColor,
+    this.themeColor,
   });
-  final Color? backgroundColor;
+  final Color? themeColor;
 
   @override
   State<EditTree> createState() => _EditTreeState();
@@ -34,11 +34,11 @@ class _EditTreeState extends State<EditTree> {
 
   @override
   Widget build(BuildContext context) {
-    List<StickerModel> stickers = context.watch<PostcardState>().stickers;
+    List<StickerModel> stickers = context.watch<StickerState>().stickerList;
     StickerModel? selectedSticker =
-        context.watch<PostcardProvider>().selectedSticker;
-    PostcardProvider postcardProvider =
-        Provider.of<PostcardProvider>(context, listen: false);
+        context.watch<StickerProvider>().selectedSticker;
+    StickerProvider stickerProvider =
+        Provider.of<StickerProvider>(context, listen: false);
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -53,12 +53,12 @@ class _EditTreeState extends State<EditTree> {
           decoration: const BoxDecoration(
             shape: BoxShape.circle,
           ),
-          clipBehavior: Clip.hardEdge,
+          // clipBehavior: Clip.hardEdge, //@todo 오버플로우 hidden
           child: Stack(
             children: [
               CircleAvatar(
-                radius: MediaQuery.of(context).size.height * 0.25,
-                backgroundColor: widget.backgroundColor ?? AppColors.blueColor,
+                radius: MediaQuery.of(context).size.width * 0.45,
+                backgroundColor: widget.themeColor ?? AppColors.blueColor,
               ),
               Positioned(
                 left: 0,
@@ -83,16 +83,22 @@ class _EditTreeState extends State<EditTree> {
                   top: sticker.top,
                   left: sticker.left,
                   child: GestureDetector(
+                    onTap: () {
+                      //@why? setstate를 하지 않으면 바로바로 적용이 안됨
+                      setState(() {
+                        stickerProvider.updateSelectedSticker(sticker);
+                      });
+                    },
                     onPanUpdate: (details) {
-                      if (sticker.id == selectedSticker?.id) {
-                        postcardProvider.updateStickerPosition(
-                          context,
-                          sticker,
-                          details.delta.dx * 2.0,
-                          details.delta.dy * 2.0,
-                        );
-                        selectedSticker = sticker;
+                      if (sticker.id != selectedSticker?.id) {
+                        stickerProvider.updateSelectedSticker(sticker);
                       }
+                      stickerProvider.updateStickerPosition(
+                        context,
+                        sticker,
+                        details.delta.dx * 2.0,
+                        details.delta.dy * 2.0,
+                      );
                     },
                     // onScaleUpdate:
                     //     type == EditType.scale
@@ -105,13 +111,6 @@ class _EditTreeState extends State<EditTree> {
                     //             );
                     //           }
                     //         : null,
-                    onTap: () {
-                      if (sticker.id != selectedSticker?.id) {
-                        context
-                            .read<PostcardProvider>()
-                            .updateSelectedSticker(sticker);
-                      }
-                    },
                     child: Container(
                       decoration: BoxDecoration(
                         border: Border.all(
