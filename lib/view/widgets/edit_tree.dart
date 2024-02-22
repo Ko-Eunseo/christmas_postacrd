@@ -2,8 +2,10 @@ import 'package:christmas_postcard/model/sticker_model.dart';
 import 'package:christmas_postcard/providers/sticker/sticker_provider.dart';
 import 'package:christmas_postcard/providers/sticker/sticker_state.dart';
 import 'package:christmas_postcard/styles/app_color_styles.dart';
+import 'package:christmas_postcard/view/widgets/editor/editor.dart';
 import 'package:christmas_postcard/view/widgets/headline.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
 enum EditType {
@@ -53,7 +55,7 @@ class _EditTreeState extends State<EditTree> {
           decoration: const BoxDecoration(
             shape: BoxShape.circle,
           ),
-          // clipBehavior: Clip.hardEdge, //@todo 오버플로우 hidden
+          clipBehavior: Clip.hardEdge,
           child: Stack(
             children: [
               CircleAvatar(
@@ -112,6 +114,7 @@ class _EditTreeState extends State<EditTree> {
                     //           }
                     //         : null,
                     child: Container(
+                      //@todo: depth가 생기면 위젯이 움직이지 않음
                       decoration: BoxDecoration(
                         border: Border.all(
                           color: sticker.id == selectedSticker?.id
